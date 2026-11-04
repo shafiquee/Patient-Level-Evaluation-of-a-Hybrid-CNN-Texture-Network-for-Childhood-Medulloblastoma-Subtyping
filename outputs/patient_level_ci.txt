@@ -1,0 +1,24 @@
+method                                         correct  acc [95% CI]          bal.acc [95% CI]
+Majority-patient baseline (always Classic)      5/10    0.50 [0.19, 0.81]    0.333 [0.333, 0.333]
+Frozen EffNetV2-S + LR (stain+CLAHE, both)      5/10    0.50 [0.19, 0.81]    0.333 [0.333, 0.333]
+DSAF-Net, no texture                            3/10    0.30 [0.07, 0.65]    0.200 [0.067, 0.333]
+DSAF-Net, texture                               5/10    0.50 [0.19, 0.81]    0.378 [0.200, 0.600]
+DSAF-Net, texture, fine-tuned                   6/10    0.60 [0.26, 0.88]    0.444 [0.333, 0.667]
+Path Foundation head, texture                   3/10    0.30 [0.07, 0.65]    0.200 [0.067, 0.333]
+
+Patient-level macro metrics (one-vs-rest over the 3 tumour classes), bootstrap 95% CI, B = 10000
+method                                         sens(=bal.acc)            spec                   F1
+Majority-patient baseline (always Classic)     0.333 [0.333, 0.333]   0.667 [0.667, 0.667]   0.222 [0.222, 0.222]
+Frozen EffNetV2-S + LR (stain+CLAHE, both)     0.333 [0.333, 0.333]   0.686 [0.667, 0.705]   0.238 [0.222, 0.256]
+DSAF-Net, no texture                           0.200 [0.067, 0.333]   0.590 [0.476, 0.686]   0.167 [0.061, 0.238]
+DSAF-Net, texture                              0.378 [0.200, 0.600]   0.705 [0.571, 0.838]   0.333 [0.154, 0.523]
+DSAF-Net, texture, fine-tuned                  0.444 [0.333, 0.667]   0.752 [0.667, 0.886]   0.390 [0.222, 0.589]
+Path Foundation head, texture                  0.200 [0.067, 0.333]   0.590 [0.476, 0.686]   0.167 [0.061, 0.238]
+
+Per-class patient recall (subgroup analysis), Clopper-Pearson 95% CI
+Majority-patient baseline (always Classic)     Classic 5/5 [0.48, 1.00]; Desmoplastic/Nodular 0/3 [0.00, 0.71]; Large cell 0/2 [0.00, 0.84]
+Frozen EffNetV2-S + LR (stain+CLAHE, both)     Classic 5/5 [0.48, 1.00]; Desmoplastic/Nodular 0/3 [0.00, 0.71]; Large cell 0/2 [0.00, 0.84]
+DSAF-Net, no texture                           Classic 3/5 [0.15, 0.95]; Desmoplastic/Nodular 0/3 [0.00, 0.71]; Large cell 0/2 [0.00, 0.84]
+DSAF-Net, texture                              Classic 4/5 [0.28, 0.99]; Desmoplastic/Nodular 1/3 [0.01, 0.91]; Large cell 0/2 [0.00, 0.84]
+DSAF-Net, texture, fine-tuned                  Classic 5/5 [0.48, 1.00]; Desmoplastic/Nodular 1/3 [0.01, 0.91]; Large cell 0/2 [0.00, 0.84]
+Path Foundation head, texture                  Classic 3/5 [0.15, 0.95]; Desmoplastic/Nodular 0/3 [0.00, 0.71]; Large cell 0/2 [0.00, 0.84]
