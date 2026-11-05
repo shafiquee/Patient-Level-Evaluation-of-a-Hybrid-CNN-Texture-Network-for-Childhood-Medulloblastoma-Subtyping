@@ -1,0 +1,10 @@
+numpy
+scipy
+pandas
+scikit-learn
+matplotlib
+shap
+tensorflow==2.9.1
+opencv-python
+scikit-image
+gradio
